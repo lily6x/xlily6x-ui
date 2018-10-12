@@ -1,0 +1,175 @@
+.lily_menu{
+    opacity:0.9;border-radius: 5px; display: none;  position: fixed ;
+    background: linear-gradient(to left bottom, rgb(214, 255, 127) 0%, rgba(231, 112, 255, 0.42) 100%);
+    /*background-color: #76c2ff;*/
+}
+.lily_menu .lily_menu_item{
+    border-radius: 4px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    color: #f116cd;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.lily_menu .over{
+    /*background-color: #ff1cf4;*/
+    background: linear-gradient(to left bottom, rgb(255, 38, 204) 0%, rgba(110, 222, 27, 0.42) 100%);
+    color: white;
+}
+
+.lily_hover{
+    background-color: #a67ca7;
+}
+.lily_row_selected{
+    background-color: #55a767;
+}
+
+.lily_odd{ background-color: rgba(66, 131, 142, 0.14);}
+.lily_even{ background-color: rgba(160, 216, 213, 0.21);}
+
+.lily_tips{
+    height: 30px;
+    width: auto;
+    border-radius: 5px;
+    opacity:0.6;
+    background-color: #292e2e;
+    color: #fcfcfc;
+    font-size: 10px;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: fixed;
+}
+
+
+.lily_table{
+    border-radius: inherit;
+    font-family: monospace;
+    /*border:solid #111a1b 1px;*/
+    width:100%;table-layout:fixed;height:100%;
+}
+/*$("#filelisttb").xLily6X($.widget.Chameleon);*/
+.lily_table thead tr{
+    background-color: #c4c3c0;
+    height: 35px;
+    font-family: monospace;
+    color: #9d2525;
+}
+
+.lily_table tbody tr{
+    font-size: 13px;
+    line-height: 2;
+    height: 35px;
+}
+
+.lily_table tbody tr td{
+    text-align: center;
+    color: #5f5f5f;
+
+}
+.lily_table_search{
+    width: 100px;
+    margin-top: 5px;
+    background-color: #f5dcdc;
+}
+.lily_pagination{
+    background-color: #c4c3c0;
+    height: 30px;
+    font-size: 10px;
+    color: #9d2525;
+}
+.lily_pagination select{
+    padding: 5px 10px;
+    font-size: 12px;
+    border: 1px solid #7d2222;
+}
+.lily_pagination a{
+    text-decoration: none;
+    color: #9d2525;
+}
+
+.left{
+    text-align: left;
+    padding-left: 5px;
+}
+.centers{
+    text-align: center;
+}
+.right{
+    text-align: right;
+    padding-right: 5px;
+}
+
+.lily_combox{
+    padding: 5px 25px;
+    font-size: 12px;
+    border: 1px solid #2bd0c0;
+    -webkit-appearance: none;
+    background-color: rgba(142, 133, 87, 0.06);
+    color: #d45c24;
+    border-radius: 0.2em;
+    width: 100%;
+
+}
+.lily_combox option{
+    height: 32px;
+    line-height: 32px;
+    padding: 0px 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+pre{
+    -moz-osx-font-smoothing: initial;
+    -webkit-font-smoothing: initial;
+    background-color: #f8f8f8;
+    /*background: linear-gradient(to left bottom, rgb(224, 224, 224) 0%, rgba(197, 222, 162, 0.42) 100%);*/
+    font-family: 'Roboto Mono', Monaco, courier, monospace;
+    line-height: 24px;
+    line-height: 1.5rem;
+    margin: 1.2em 0;
+    overflow: auto;
+    /*padding: 0 22.4px;*/
+    /*padding: 0 1.4rem;*/
+    position: relative;
+    word-wrap: normal;
+    width: 817px;
+    /*height: 500px;*/
+    border-radius: 10px;
+    font-size: 12.8px;
+}
+
+pre code{
+
+    /*background-color: #f8f8f8;*/
+    border-radius: 2px;
+    font-family: 'Roboto Mono', Monaco, courier, monospace;
+    font-size: 12.8px;
+    font-size: 0.8rem;
+    /*white-space: nowrap;*/
+}
+
+xmp{
+
+    /*background-color: #f8f8f8;*/
+    border-radius: 2px;
+    font-family: 'Roboto Mono', Monaco, courier, monospace;
+    /*white-space: nowrap;*/
+}
+
+pre::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 5px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 5px;
+}
+pre::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(255, 0, 0, 0.05);
+}
+pre::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #EDEDED;
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xlily6x-demo</title>
+    <link rel="stylesheet" type="text/css" href="xlily6x-ui-1.0.4.css"/>
+    <style>
+        .background-left-buttom{
+            background: linear-gradient(to left bottom, rgb(255, 235, 179) 0%, rgba(250, 179, 255, 0.419608) 100%);
+            color: rgba(105, 142, 48, 0.67);
+        }
+
+        .xlily6x-button{
+            margin: 5px 5px;
+            border: solid 1px #d66421;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #d66421;
+            color: white;
+            text-align: center;
+        }
+
+        .magin{
+            margin: 50px 200px;
+        }
+    </style>
+</head>
+<body>
+<script src="jquery-2.1.1.js" ></script>
+<script src="xlily6x-ui-1.0.4.js" ></script>
+<di>
+    <h1>Xlily6X UI Demo</h1>
+    <div class="magin" >
+        <p>右键菜单</p>
+        <div id="cmDemo" style="width: 400px;height: 200px;border-radius: 12px;text-align: center;padding-top: 60px" class="background-left-buttom">
+            <h1>Click Me ！  </h1>
+        </div>
+    </div>
+    <div class="magin" >
+        <div>
+            <p>帮助文本</p>
+            <p>右上 UpRight</p>
+            <input type="button"  class="xlily6x-button" id="buttond1" value="default"/>
+            <p>右下 LowerRight</p>
+            <input type="button"  class="xlily6x-button"  id="buttond2" value="LowerRight" />
+            <p>左上 UpLeft</p>
+            <input type="button"  class="xlily6x-button"  id="buttond3" value="UpLeft" />
+            <p>左下 LowerLeft</p>
+            <input type="button"  class="xlily6x-button"  id="buttond4" value="LowerLeft" />
+
+        </div>
+    </div>
+
+    <div class="magin" >
+        <p>表格隔行变色</p>
+        <div>
+            <table id="cnTable" cellpadding="0" cellspacing="0" border="1">
+                <thead>
+                <tr>
+                    <th>name</th>
+                    <th>age</th>
+                    <th>six</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>朱芬</td>
+                    <td>18</td>
+                    <td>男</td>
+                </tr>
+                <tr>
+                    <td>董蝶</td>
+                    <td>16</td>
+                    <td>女</td>
+                </tr>
+                <tr>
+                    <td>刘明</td>
+                    <td>21</td>
+                    <td>男</td>
+                </tr>
+                <tr>
+                    <td>赵倩</td>
+                    <td>23</td>
+                    <td>女</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="magin" >
+        <p>下拉框</p>
+        <div id="comboxDemo2"></div>
+    </div>
+
+
+    <div class="magin" >
+        <p>表格</p>
+        <div id="tableDemoP"></div>
+        </br>
+        <div style="color: blue"> <span id="getAllRows" >获取所有行</span> &nbsp;&nbsp;&nbsp; <span id="getSelectedAllRows">获取选中的所有行</span>&nbsp;&nbsp;&nbsp;<span id="getSelectedAllRowsData">获取选中的所有行数据</span></div>
+        <span id="tbresult"></span>
+    </div>
+
+
+    <div class="magin" >
+        <p>代码魔术棒</p>
+        <div>
+                    <pre name = "code" class="java" ><xmp>
+        /**
+         * 通过sql语句，自动生成列名。不需要传入列名集合了
+         * @author xiaowenlong
+         * @date 2014年12月30日下午4:27:38
+         * @param sql 查询sql语句
+         * @param param 查询sql语句中的参数 , 没有则不提供  可不给
+         * @return
+         */
+        public static List<Map<String, Object>> query(Connection conn,String sql,Object ... param){
+            //获得列名称
+            List<String> cloumNames = getCloums(sql);
+            if(cloumNames==null||cloumNames.size()<=0){
+                logger.error("该方法不支持  * 号查询");
+                return null;
+            }
+            return query(conn,sql,cloumNames);
+        }
+
+                    </xmp></pre>
+        </div>
+    </div>
+
+</di>
+
+
+
+<script>
+    $(function () {
+
+        // 开启代码魔术棒
+        $.Xlily6X();
+
+        // 环境菜单
+        $("#cmDemo").xLily6X($.widget.ContextMenu,{
+            items:[
+                {id:"saveBtn",text:"save1",click:function (obj,env) {alert("save1Btn is click");}},
+                {id:"save2Btn",text:"save2",click:function (obj,env) {alert("save2Btn is click");}},
+                {id:"save3Btn",text:"save3",click:function (obj,env) {alert("save3Btn is click");}}
+
+            ],
+            auto_height:true,
+            background_color:"#fbf8ff",
+            save:function (obj) {
+                console.log("options.save");
+            }
+        });
+
+
+        //Tips 提示
+        //默认位置 右上
+        $("#buttond1").xLily6X($.widget.Tips,{text:"default location"})
+        //右下
+        $("#buttond2").xLily6X($.widget.Tips,{text:"location LowerRight!",location:"LowerRight"})
+        //左上
+        $("#buttond3").xLily6X($.widget.Tips,{text:"location UpLeft !",location:"UpLeft"})
+        //左下
+        $("#buttond4").xLily6X($.widget.Tips,{text:"location LowerLeft ",location:"LowerLeft"})
+
+
+        // 表格变色
+        $("#cnTable").xLily6X($.widget.Chameleon);
+
+
+        //下拉框
+        var comdata = [{"name":"张三","code":"zhangsan"},{"name":"李四","code":"lisi"},{"name":"王五","code":"wangwu"}];
+        // 动态 json 数据加载下拉框参数
+        var options2 = {
+            //非远程加载 数据 数组类型
+            data:comdata,
+            //是否远程加载
+            remote:false,
+            //url:"../resources/json/combox_data.json",
+            value:"code",
+            text:"name",
+            onchange:function (obj,args) {
+                console.log(obj);
+                console.log(args);
+                console.log("this comboxDemo2 value changed ");
+                // obj 下拉框对象
+                alert($(obj).find("option:selected").text()+" : "+$(obj).val());
+            }
+        };
+        $("#comboxDemo2").xLily6X($.widget.Combox,options2)
+
+
+        //表格
+        $("#tableDemoP").xLily6X($.widget.Table,optionsP);
+        
+        $("#getAllRows").click(function () {
+            alert($("#tableDemoP").xLily6X($.widget.TableGetRows));
+        })
+        $("#getSelectedAllRows").click(function () {
+            alert($("#tableDemoP").xLily6X($.widget.TableGetSelectedRows));
+        })
+        $("#getSelectedAllRowsData").click(function () {
+            alert($("#tableDemoP").xLily6X($.widget.TableGetSelectedDatas));
+        })
+
+
+
+
+    });
+
+    var optionsP={
+        columns:[
+            {name:"fileName",title:"File Name",width:"90px",isFormat:true,format:function (obj) {
+                var d = obj.directory;
+                console.log(obj.fileType);
+                if(d){
+                    var color = "#847edc";
+                    return '<td style="color: '+color+'">'+obj.fileName+'</td>';
+                }else{
+                    var color = fileNameColor(obj.fileType);
+                    return '<td style="color: '+color+'">'+obj.fileName+'</td>';
+                }
+
+            }},
+            {name:"fileSize",title:"File Size",width:"150px",search:true},
+            {name:"filePath",title:"File Path",width:"230px",align:"left",search:true},
+            {name:"filePath",title:"File Path1",width:"230px",align:"left"},
+            {name:"filePath",title:"File Path2",width:"230px",align:"left"},
+            {name:"filePath",title:"File Path3",width:"230px",align:"left"},
+            {name:"directory",title:"Directory4",width:"80px"}
+        ],
+        url:"http://127.0.0.1:8095/FilesServlet",
+        width:"800px",
+        //冻结列， 列序号 从0 开始 0 第一列
+        freeze:0,
+        //多选
+        multiple:true,
+        //使用分页插件，必须添加下面两个属性
+        paging:true,
+        //跨域请求  默认false（允许跨域请求 存在安全隐患，请做好安全措施）
+        doman:false,
+        //分页对象
+        pagination:{
+            currPage:1,
+            pageSize:5,
+            pageSizeList:[5,10,15]
+        },
+        parameters:{path:"/",action:"showfiless"}
+    }
+
+
+    //根据文件类型 返回不同颜色
+    var fileNameColor = function (type) {
+        // var point = fileName.lastIndexOf(".");
+        // var type = fileName.substr(point+1);
+        var color = "#585655";
+        switch (type){
+            case "zip":
+                color = "#e33256";
+                break;
+            case "rar":
+                color = "#c04144";
+                break;
+            case "gz":
+                color = "#c04144";
+                break;
+            case "exe":
+                color = "#13e947";
+                break;
+            case "sh":
+                color = "#54ff6d";
+                break;
+            case "bat":
+                color = "#54ff6d";
+                break;
+            case "jar":
+                color = "#fcfeff";
+                break;
+
+        }
+        return color;
+    }
+
+
+
+</script>
+</body>
+</html>
