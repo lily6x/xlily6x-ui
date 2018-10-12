@@ -18,8 +18,8 @@ XLily6X UI
  * author   : Lily
  * date     : 2017-09-28
  * email    : xiaowenlong2015@icloud.com
- * wechat	: daishangbaobao
- * QQ 		: 397035490
+ * wechat	  : daishangbaobao
+ * QQ 		  : 397035490
  * website  : http://www.xlily6x.com
  * Thanks for you used xlily6x UI !
  */
